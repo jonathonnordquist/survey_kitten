@@ -5,5 +5,6 @@ class CreateChoices < ActiveRecord::Migration
       t.string :option
 
       t.timestamps
+    end
   end
 end

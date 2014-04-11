@@ -5,5 +5,6 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :choice_id
 
       t.timestamps
+    end
   end
 end

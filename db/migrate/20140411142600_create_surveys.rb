@@ -1,6 +1,6 @@
 class CreateSurveys < ActiveRecord::Migration
   def change
-    create_tables :surveys do |t|
+    create_table :surveys do |t|
       t.integer :creator_id
       t.string :title
       t.string :image_url
