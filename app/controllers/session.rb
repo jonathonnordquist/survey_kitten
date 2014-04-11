@@ -5,10 +5,12 @@ get '/' do
 end
 
 post '/login' do
-  # Get user information, authenticate, redirect
-  if # success login
+  # Get user information,
+  @user = User.find_by email: params[:email]
+
+  if @user.authenticate(params[:password])
     session[:user_id] = @user.id
-    redirect 'users/:id'  # This don't work yet neither
+    redirect "users/#{session[:user_id]}"
   else
     redirect '/'
   end
