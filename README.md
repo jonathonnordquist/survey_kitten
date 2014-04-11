@@ -1,9 +1,17 @@
-survey_kitten
+#survey_kitten
 =============
+Survery Kitten is Jaime, Michael, Jonathon, Christoph.
 
-Our awesome survey website.  All other survey sites suck!
 
-Trello link
+#MVP:
+
+
+#Trello link
 -----------
 
 https://trello.com/b/7BBeTECE/surveygorilla
+
+
+#Wire Frames
+
+#Description
