@@ -8,3 +8,13 @@
 th {
   text-align: left;
 }
+
+.take-survey {
+	float: right;
+}
+
+li {
+	padding: 10px;
+	border-bottom: 1px dotted gray; 
+	list-style: none;
+}

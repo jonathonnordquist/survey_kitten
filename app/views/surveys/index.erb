@@ -1,0 +1,11 @@
+<div class="container">
+	<h2>Browse Surveys</h2>
+	<ul>
+		<% @surveys.each do |survey| %>
+		<li> 
+			<%= survey.title %> 
+			<a class="take-survey" href="/surveys/<%= survey.id %>">Take Survey!</a> 
+		</li>
+		<% end %>
+	</ul>
+</div>

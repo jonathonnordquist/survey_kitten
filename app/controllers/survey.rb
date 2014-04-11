@@ -19,12 +19,13 @@ end
 
 
 #read
-get '/surveys' do
-  if logged_in?
+get '/surveys/' do
+  # if logged_in?
+    @surveys = Survey.all
     erb :'/surveys/index'
-  else
-    redirect '/'
-  end
+  # else
+  #   redirect '/'
+  # end
 end
 
 get '/surveys/:id' do
