@@ -13,7 +13,7 @@ th {
 	float: right;
 }
 
-li {
+.survey-list {
 	padding: 10px;
 	border-bottom: 1px dotted gray; 
 	list-style: none;

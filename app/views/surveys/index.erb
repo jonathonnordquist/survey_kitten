@@ -2,7 +2,7 @@
 	<h2>Browse Surveys</h2>
 	<ul>
 		<% @surveys.each do |survey| %>
-		<li> 
+		<li class="survey-list"> 
 			<%= survey.title %> 
 			<a class="take-survey" href="/surveys/<%= survey.id %>">Take Survey!</a> 
 		</li>
