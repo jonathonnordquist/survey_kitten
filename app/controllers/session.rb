@@ -7,6 +7,7 @@ end
 post '/login' do
   # Get user information, authenticate, redirect
   if # success login
+    session[:user_id] = @user.id
     redirect 'users/:id'  # This don't work yet neither
   else
     redirect '/'
