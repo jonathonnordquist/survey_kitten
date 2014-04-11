@@ -27,7 +27,7 @@ get '/surveys' do
   end
 end
 
-get '/surveys/:id'
+get '/surveys/:id' do
   if logged_in?
     erb :'/surveys/show'
   else
@@ -46,7 +46,7 @@ end
 #---------------------------
 # Survey submission methods
 
-post '/responses'
+post '/responses' do
   # Update database
   redirect '/surveys'
 end
