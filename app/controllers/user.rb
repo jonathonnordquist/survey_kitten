@@ -5,7 +5,7 @@ get '/users/new' do
 end
 
 post '/users' do
-  # user.create
+  User.create(params[:user])
   redirect '/users/#{userid}'  # this doesn't work yet
 end
 
