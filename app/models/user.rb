@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: :true
 
   has_many :created_surveys, class_name: 'Survey', foreign_key: :creator_id
-  has_many :participations
-  has_many :taken_surveys, through: :participations, source: :survey_id
+  has_many :participations, foreign_key: :taker_id
+  has_many :taken_surveys, through: :participations, source: :survey
   has_many :answers, through: :participations
 
 end
