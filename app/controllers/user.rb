@@ -5,7 +5,7 @@ get '/users/new' do
 end
 
 post '/users' do
-  # user.create
+  User.create(params[:user])
   redirect '/users/#{userid}'  # this doesn't work yet
 end
 
@@ -20,7 +20,7 @@ end
 #read
 get '/users/:id' do
   # Get user id
-  if logged_in
+  if logged_in?
     erb :'users/show'
   else
     redirect '/'
