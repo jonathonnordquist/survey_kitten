@@ -32,9 +32,9 @@ get '/surveys' do
   end
 end
 
-get '/surveys/1' do
+get '/surveys/:id' do
   # if logged_in?
-
+    @survey_id = params[:id]
     erb :'/surveys/show'
   # else
   #   redirect '/'
