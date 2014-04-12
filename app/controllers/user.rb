@@ -6,7 +6,8 @@ end
 
 post '/users' do
   User.create(params[:user])
-  redirect '/users/#{userid}'  # this doesn't work yet
+  redirect '/'
+  # redirect '/users/#{userid}'  # this doesn't work yet
 end
 
 
@@ -25,6 +26,11 @@ get '/users/:id' do
   else
     redirect '/'
   end
+end
+
+post '/users/logout' do
+  session.clear
+  redirect '/'
 end
 
 
