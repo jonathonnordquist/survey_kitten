@@ -62,7 +62,7 @@ require 'faker'
   User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "123", password_confirmation: "123", image_url: Faker::Internet.url)
   Survey.create!(title: Faker::Team.creature, creator_id: x, image_url: Faker::Internet.url)
   4.times do |y|
-    Question.create!(survey_id: x, text: Faker::Lorem.words(9).join(' '), image_url: Faker::Internet.url)
+    Question.create!(survey_id: x + 1, text: Faker::Lorem.words(9).join(' '), image_url: Faker::Internet.url)
   end
 
   # Participation.create!(taker_id: rand(1..4), survey_id: rand(1..4))
@@ -71,7 +71,7 @@ end
 
 16.times do |x|
   4.times do
-    Choice.create!(question_id: x, option: Faker::Lorem.words(2).join(' '))
+    Choice.create!(question_id: x + 1, option: Faker::Lorem.words(2).join(' '))
   end
 end
 

@@ -37,15 +37,17 @@ get '/surveys/' do
   end
 end
 
-get '/surveys/:id' do
-  if logged_in?
+get '/surveys/:id' do         # Uncomment prior to submission
+  # if logged_in?
     @survey_id = params[:id]
 
     @question_choices = Choice.where(question_id: Question.where(survey_id: @survey_id).first.id)
+    p "question_choices ====================================================="
+    p @survey_id
     erb :'/surveys/show'
-  else
-    redirect '/'
-  end
+  # else
+  #   redirect '/'
+  # end
 end
 
 

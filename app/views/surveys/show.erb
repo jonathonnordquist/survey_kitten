@@ -1,6 +1,6 @@
-<%= Survey.all.first.title %>
+<%= Survey.where(id: @survey_id).first.title %>
 <br>
-<%= Question.where(survey_id: Survey.first).first.text %>
+<%= Question.where(survey_id: @survey_id).first.text %>
 
 
 <form method="post" action="/responses">
@@ -11,7 +11,3 @@
   <input type="hidden" name="participation_no" value="1">
   <input type="submit">
 </form>
-
-
-
-
