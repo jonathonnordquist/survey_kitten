@@ -6,7 +6,8 @@ end
 
 post '/users' do
   User.create(params[:user])
-  redirect '/users/#{userid}'  # this doesn't work yet
+  redirect '/'
+  # redirect '/users/#{userid}'  # this doesn't work yet
 end
 
 
@@ -20,11 +21,16 @@ end
 #read
 get '/users/:id' do
   # Get user id
-  if logged_in
+  if logged_in?
     erb :'users/show'
   else
     redirect '/'
   end
+end
+
+post '/users/logout' do
+  session.clear
+  redirect '/'
 end
 
 
