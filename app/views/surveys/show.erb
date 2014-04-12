@@ -1,0 +1,17 @@
+<%= Survey.all.first.title %>
+<br>
+<%= Question.where(survey_id: Survey.first).first.text %>
+
+<form method="post" action="/surveys">
+  <input type="radio" name="survey_question" value="<%= Choice.where(question_id: Question.where(survey_id: Question.first).first.id)[0].option %>"> <%= Choice.where(question_id: Question.where(survey_id: Question.first).first.id)[0].option %>
+  <br>
+  <input type="radio" name="survey_question" value="<%= Choice.where(question_id: Question.where(survey_id: Question.first).first.id)[1].option %>"> <%= Choice.where(question_id: Question.where(survey_id: Question.first).first.id)[1].option %>
+  <br>
+  <input type="hidden" name="participation_no" value="1">
+  <input type="submit">
+
+</form>
+
+
+
+

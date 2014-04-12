@@ -9,12 +9,17 @@ end
 
 post '/surveys' do
   # Save information to db
-  if saved
-    redirect 'survey/:id'
-  else
-    redirect 'survey/new'
+  p "submitted"
+  answer = params[:survey_question]
+  participation = params[:participation_no]
+  Answer.create(participation_id: participation, choice_id: answer)
+
+  # if saved
+  #   redirect 'survey/:id'
+  # else
+    erb :'/surveys/thank'
     # will need to feed a failure msg to the survey page
-  end
+  # end
 end
 
 
@@ -27,13 +32,18 @@ get '/surveys' do
   end
 end
 
-get '/surveys/:id' do
-  if logged_in?
+get '/surveys/1' do
+  # if logged_in?
+
     erb :'/surveys/show'
-  else
-    redirect '/'
-  end
+  # else
+  #   redirect '/'
+  # end
 end
+
+
+
+
 
 #update
 
