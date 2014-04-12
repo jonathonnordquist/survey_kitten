@@ -13,9 +13,15 @@ end
 
 #update
 post '/users/:id' do
-  # get post data
-  # update db w/ helper method
-  # feed back to ajax
+  @update_value = params[:update_value]
+  @element_id = params[:element_id]
+  @original_html = params[:original_html]
+    if @element_id == "user-name-edit"
+      User.update(session[:user_id], :name => @update_value)
+    elsif @element_id == "user-email-edit"
+      User.update(session[:user_id], :email => @update_value)
+    end
+  @update_value
 end
 
 #read

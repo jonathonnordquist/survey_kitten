@@ -3,9 +3,9 @@
 # browse (possibly nav) /
 #surveys created /
 # surveys taken /
-# stats link
-# create survey link
-# edit user information
+# stats link /
+# create survey link /
+# edit user information /
 # delete account
 
 <div class="container">
@@ -15,32 +15,35 @@
 
 <h1>Hello, <%=@this_user.name %></h1>
 
-<img src="<%=@this_user.image_url %>" alt="Smiley face" height="100" width="100">
+<img src="<%=@this_user.image_url %>" alt="User Photo" height="100" width="100">
 
-<table style="width:600px">
+<table class="user-edit-table" style="width:600px">
   <tr>
     <td><b>Name:</b></td>
     <td><b>Email:</b></td>
   </tr>
   <tr>
-    <td><%= @this_user.name %></td>
-    <td> <%= @this_user.email %></td>
+    <td id="user-name-edit"><%= @this_user.name %></td>
+    <td id="user-email-edit"> <%= @this_user.email %></td>
   </tr>
 </table>
 
-
 <a href='/surveys/'>Browse Surveys</a>
+<a href='/surveys/new'>Create a new Survey</a>
+
 
 <h3>Surveys You Created:</h3>
 <table style="width:600px">
       <tr>
         <td>Survey Image</td>
         <td>Survey Title</td>
+        <td>Stats</td>
       </tr>
       <% @this_user.created_surveys do |created_survey| %>
       <tr>
         <td><img src="<%=created_survey.url %>" alt="Survey Image" height="25" width="25"></td>
         <td><a href="/surveys/<%=created_survey.id %>"><%=created_survey.title %></a></td>
+        <td><a href='/surveys/<%=created_survey.id %>/stats'>View stats</a></td>
       </tr>
       <% end %>
 </table>
@@ -50,11 +53,13 @@
       <tr>
         <td>Survey Image</td>
         <td>Survey Title</td>
+        <td>Stats</td>
       </tr>
       <% @this_user.taken_surveys do |taken_survey| %>
       <tr>
         <td><img src="<%=taken_survey.url %>" alt="Survey Image" height="25" width="25"></td>
         <td><a href="/surveys/<%=taken_survey.id %>"><%=created_survey.title %></a></td>
+        <td><a href='/surveys/<%=taken_survey.id %>/stats'>View stats</a></td>
       </tr>
       <% end %>
 </table>

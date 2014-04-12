@@ -37,6 +37,14 @@ $(document).ready(function() {
     });
   });
 
+    $("#user-name-edit").editInPlace({
+      url: "/users/:id"
+    });
+
+    $("#user-email-edit").editInPlace({
+      url: "/users/:id"
+    });
+
 
 
 });
