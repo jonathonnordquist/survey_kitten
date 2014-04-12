@@ -3,4 +3,5 @@ class Survey < ActiveRecord::Base
   has_many :questions
   has_many :participations
   has_many :takers, through: :participations
+  has_many :answers, through: :participations
 end
