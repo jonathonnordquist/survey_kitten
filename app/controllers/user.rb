@@ -20,7 +20,7 @@ end
 #read
 get '/users/:id' do
   # Get user id
-  if logged_in
+  if logged_in?
     erb :'users/show'
   else
     redirect '/'
