@@ -8,8 +8,18 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-  # Save information to db
-  if saved
+  @survey = Survey.new(creator_id: session[:user_id], 
+                       title: params[:title])
+  if @survey.save 
+    @question = Question.new(survey_id: @survey.id,
+                             text: params[:text])
+  end
+  
+  if @question.save
+    params[:choice].each do |key, value|
+      @choices = Choice.create(question_id: @question.id,
+                            option: value)
+    end
     redirect 'survey/:id'
   else
     redirect 'survey/new'
