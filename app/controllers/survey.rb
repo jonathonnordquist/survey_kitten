@@ -36,6 +36,12 @@ get '/surveys/:id' do
   end
 end
 
+
+get '/surveys/:survey_id/stats' do
+  @survey = Survey.find(params[:survey_id])
+  erb :'/surveys/stats'
+end
+
 #update
 
 
