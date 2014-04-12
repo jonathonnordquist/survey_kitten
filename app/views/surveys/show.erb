@@ -5,7 +5,7 @@
 
 <form method="post" action="/responses">
   <% @question_choices.count.times do |choice_no| %>
-    <input type="radio" name="choice_id" value="<%= @question_choices[choice_no].id %>"> <%= @question_choices[choice_no].id %>
+    <input type="radio" name="choice_id" value="<%= @question_choices[choice_no].id %>"> <%= @question_choices[choice_no].option %>
     <br>
   <% end %>
   <input type="hidden" name="participation_no" value="1">

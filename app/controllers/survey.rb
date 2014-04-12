@@ -8,12 +8,6 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-<<<<<<< HEAD
-  # Save information to db
-
-
-  if saved
-=======
   @survey = Survey.new(creator_id: session[:user_id],
                        title: params[:title])
   if @survey.save
@@ -26,7 +20,6 @@ post '/surveys' do
       @choices = Choice.create(question_id: @question.id,
                             option: value)
     end
->>>>>>> 0a67be2a40909982f4e5215cde8e857eb5c4096d
     redirect 'survey/:id'
   else
     # will need to feed a failure msg to the survey page
@@ -56,15 +49,12 @@ get '/surveys/:id' do
 end
 
 
-<<<<<<< HEAD
 
 
-=======
-get '/surveys/:survey_id/stats' do
-  @survey = Survey.find(params[:survey_id])
-  erb :'/surveys/stats'
-end
->>>>>>> 0a67be2a40909982f4e5215cde8e857eb5c4096d
+# get '/surveys/:survey_id/stats' do
+#   @survey = Survey.find(params[:survey_id])
+#   erb :'/surveys/stats'
+# end
 
 #update
 
