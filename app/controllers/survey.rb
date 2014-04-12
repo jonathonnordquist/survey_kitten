@@ -42,6 +42,7 @@ get '/surveys/:id' do         # Uncomment prior to submission
     @survey_id = params[:id]
 
     @question_choices = Choice.where(question_id: Question.where(survey_id: @survey_id).first.id)
+    @survey_questions = Question.where(survey_id: 1)
     p "question_choices ====================================================="
     p @survey_id
     erb :'/surveys/show'
