@@ -9,17 +9,13 @@ end
 
 post '/surveys' do
   # Save information to db
-  p "submitted"
-  answer = params[:survey_question]
-  participation = params[:participation_no]
-  Answer.create(participation_id: participation, choice_id: answer)
 
-  # if saved
-  #   redirect 'survey/:id'
-  # else
-    erb :'/surveys/thank'
+
+  if saved
+    redirect 'survey/:id'
+  else
     # will need to feed a failure msg to the survey page
-  # end
+  end
 end
 
 
@@ -35,6 +31,8 @@ end
 get '/surveys/:id' do
   # if logged_in?
     @survey_id = params[:id]
+
+    @question_choices = Choice.where(question_id: Question.where(survey_id: @survey_id).first.id)
     erb :'/surveys/show'
   # else
   #   redirect '/'
@@ -57,8 +55,11 @@ end
 # Survey submission methods
 
 post '/responses' do
-  # Update database
-  redirect '/surveys'
+  p "submitted"
+  answer = params[:choice_id]
+  participation = params[:participation_no]
+  Answer.create(participation_id: participation, choice_id: answer)
+  erb :'/surveys/thank'
 end
 
 
