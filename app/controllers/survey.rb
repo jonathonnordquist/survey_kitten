@@ -40,11 +40,22 @@ end
 get '/surveys/:id' do         # Uncomment prior to submission
   # if logged_in?
     @survey_id = params[:id]
+    @question = []
+    @choices = []
+    Question.where(survey_id: @survey_id).each do |question|
+      @question << question
+      temp_choices = []
+      Choice.where(question_id: question.id).each do |choice|
+        temp_choices << choice
+      end
+      @choices << temp_choices
+    end
 
-    @question_choices = Choice.where(question_id: Question.where(survey_id: @survey_id).first.id)
-    @survey_questions = Question.where(survey_id: 1)
-    p "question_choices ====================================================="
-    p @survey_id
+    @survey_questions = Question.where(survey_id: @survey_id)
+    p "questions ====================================================="
+    p @question.inspect
+    p "choices ======================================================="
+    p @choices.inspect
     erb :'/surveys/show'
   # else
   #   redirect '/'
@@ -54,10 +65,10 @@ end
 
 
 
-# get '/surveys/:survey_id/stats' do
-#   @survey = Survey.find(params[:survey_id])
-#   erb :'/surveys/stats'
-# end
+get '/surveys/:survey_id/stats' do
+  @survey = Survey.find(params[:survey_id])
+  erb :'/surveys/stats'
+end
 
 #update
 
@@ -71,10 +82,12 @@ end
 # Survey submission methods
 
 post '/responses' do
-  p "submitted"
-  answer = params[:choice_id]
-  participation = params[:participation_no]
-  Answer.create(participation_id: participation, choice_id: answer)
+  p "submitted======================================================================="
+  p params
+  p params[:question][0]
+  # answer = params[:choice_id]
+  # participation = params[:participation_no]
+  # Answer.create(participation_id: participation, choice_id: answer)
   erb :'/surveys/thank'
 end
 

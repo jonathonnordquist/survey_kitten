@@ -1,20 +1,20 @@
 <%= Survey.where(id: @survey_id).first.title %>
 <br>
-<%= Question.where(survey_id: @survey_id).first.text %>
-
-<% Question.where(survey_id: @survey_id).count.times do |question_no| %>
-<%= Question.where(survey_id: @survey_id)[question_no].text %>
-
-  <form method="post" action="/responses">
-    <% @question_choices.count.times do |choice_no| %>
-      <input type="radio" name="choice_id" value="<%= @question_choices[choice_no].id %>"> <%= Choice.where(question_id: Question.where(survey_id: @survey_id)[question_no].id)[choice_no].option %>
+<br>
+<% @question.each_with_index do |question, question_no| %>
+<form method="post" action="/responses">
+  <%= question.text %>
+  <br>
+    <% @choices[question_no].each do |choice| %>
+      <input type="radio" name="question[<%= question_no %>]" value="<%= choice.id %>"> <%= choice.option %>
       <br>
     <% end %>
-    <input type="hidden" name="participation_no" value="1">
-    <input type="submit">
-  </form>
 
-<% end %>
+
+  <% end %>
+  <input type="submit">
+</form>
+
 
 
 
