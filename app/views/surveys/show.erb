@@ -1,4 +1,6 @@
-<%= Survey.where(id: @survey_id).first.title %>
+<%=@survey.title %>
+<img src="../<%=@survey.filepath%>" alt="Survey Photo" height="150" width="150">
+
 <br>
 <br>
 <% @question.each_with_index do |question, question_no| %>
