@@ -1,5 +1,5 @@
 .container {
-  margin: 20px auto;
+  margin: 80px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
@@ -24,3 +24,24 @@ th {
 	list-style: none;
 }
 
+.topbar {
+    position: fixed;
+    background: black;
+    color: white;
+    width: 100%;
+    top: 0;
+    height: 64px;
+}
+
+.login h1 {
+  float: left;
+  padding-left: 16px;
+}
+
+.login a {
+  color: white;
+  padding: 16px 16px 0 0;
+  top: 0;
+  float: right;
+  text-decoration: none;
+}

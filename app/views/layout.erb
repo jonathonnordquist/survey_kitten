@@ -26,38 +26,20 @@
 <title>Welcome to Survey Kitten!</title>
 </head>
 <body>
-  <div id="topbar">
-    <div id="login">
-      <% current_user = nil %>
-      <% if current_user.nil? %>
-
-        <form method="post" action=" /login">
-
-          <input type="text" name="user_name">
-          <input type="password" name="password">
-
-        </form>
-
+  <div class="topbar">
+    <div class="login">
+      <% if session[:user_id] %>
+      <% @this_user = User.find(session[:user_id]) %>
+            <h1> Survey Kitten </h1>
+            <a href='/logout'>Logout</a>
+            <a href='/surveys/new'>Create</a>
+            <a href='/surveys/'>Browse</a>
+            <a href='/users/:id'>Profile</a>
       <% else %>
-
-        <p>session[:user_id]<p>
-
+            <h1> Survey Kitten </h1>
+            <a href='/'>Login</a>
+            <a href='/users/new'>Register</a>
       <% end %>
-    </div>
-
-    <div id="navigation">
-      <form method="post" action="/">
-        <input type="submit" value="Browse Surveys">
-      </form>
-
-      <img src="https://pbs.twimg.com/profile_images/3031415037/97781eac7b3ce9fac7c0a5c063c3db32.jpeg">
-
-      <% if !current_user.nil? %>
-        <form method="post" action="/surveys/new">
-          <input type="submit" value="Create Survey">
-        </form>
-      <% end %>
-
     </div>
   </div>
   <%= yield %>
