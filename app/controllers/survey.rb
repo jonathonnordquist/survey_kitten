@@ -85,9 +85,11 @@ end
 
 post '/responses' do
   participation = Participation.create(taker_id: 1, survey_id: params[:survey_id])  # Get taker_id from user session
-
-  params[:answer].each do |key, value|
-    Answer.create(participation_id: participation.id, choice_id: params[:answer][key]) if params[:answer][key]
+  params[:answer].each do |key, value|                                                          # Creates new answers for multiple choice.
+    Answer.create(participation_id: participation.id, choice_id: params[:answer][key])
+  end
+  params[:text_answer].each do |key, value|                                                     # Creates new answers for text entry.
+    Answer.create(participation_id: participation.id, text_answer: params[:text_answer][key])
   end
 
   participation = params[:participation_no]

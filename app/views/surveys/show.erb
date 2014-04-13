@@ -1,14 +1,17 @@
-<%=@survey.title %>
-<img src="../<%=@survey.filepath%>" alt="Survey Photo" height="150" width="150">
-
+<%= Survey.where(id: @survey_id).first.title %>
 <br>
 <br>
-<% @question.each_with_index do |question, question_no| %>
 <form method="post" action="/responses">
-  <%= question.text %> <img src="../<%=question.filepath%>" alt="Question Pic" height="100" width="100">
-  <br>
-    <% @choices[question_no].each do |choice| %>
-      <input type="radio" name="answer[<%= question_no %>]" value="<%= choice.id %>"> <%= choice.option %>
+  <% @question.each_with_index do |question, question_no| %>
+    <%= question.text %>
+    <br>
+    <% if @choices[question_no].count > 0 %>
+      <% @choices[question_no].each do |choice| %>
+        <input type="radio" name="answer[<%= question_no %>]" value="<%=  choice.id %>"> <%= choice.option %>
+        <br>
+      <% end %>
+    <% else %>
+      <textarea rows="4" cols="50" name="text_answer[<%= question_no %>]"></textarea>
       <br>
     <% end %>
     <input type="hidden" name="survey_id" value="<%= @survey_id %>">
@@ -16,7 +19,6 @@
   <% end %>
   <input type="submit">
 </form>
-
 
 
 
