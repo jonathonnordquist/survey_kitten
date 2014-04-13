@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= Survey.where(id: @survey_id).first.title %>
 <br>
 <br>
@@ -14,13 +16,15 @@
       <textarea rows="4" cols="50" name="text_answer[<%= question_no %>]"></textarea>
       <br>
     <% end %>
-    <input type="hidden" name="survey_id" value="<%= @survey_id %>">
+    <br>
 
   <% end %>
+
+  <input type="hidden" name="survey_id" value="<%= @survey_id %>">
   <input type="submit">
 </form>
 
-
+</div>
 
 
 
