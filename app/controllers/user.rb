@@ -5,7 +5,9 @@ get '/users/new' do
 end
 
 post '/users' do
-  if User.create(params[:user])
+  @user = User.new(params[:user])
+  @uploaded_file = user.update(:filepath => params[:upload_image])
+  if @user.save!
     @user = User.last
         session[:user_id] = @user.id
         @user.id.to_s
