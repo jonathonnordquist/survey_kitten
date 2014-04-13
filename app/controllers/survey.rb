@@ -40,6 +40,7 @@ end
 
 get '/surveys/:id' do         # Uncomment prior to submission
   # if logged_in?
+    @survey = Survey.find(params[:id])
     @survey_id = params[:id]
     @question = []
     @choices = []
