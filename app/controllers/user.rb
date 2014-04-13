@@ -6,7 +6,7 @@ end
 
 post '/users' do
   @user = User.new(params[:user])
-  @uploaded_file = user.update(:filepath => params[:upload_image])
+  @uploaded_file = @user.update(:filepath => params[:upload_image])
   if @user.save!
     @user = User.last
         session[:user_id] = @user.id

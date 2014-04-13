@@ -13,7 +13,7 @@ post '/surveys' do
                        title: params[:title], :filepath => params[:upload_image])
   if @survey.save
     @question = Question.new(survey_id: @survey.id,
-                             text: params[:text])
+                             text: params[:text], :filepath => params[:question_image])
   end
 
   if @question.save
@@ -21,7 +21,7 @@ post '/surveys' do
       @choices = Choice.create(question_id: @question.id,
                             option: value)
     end
-    redirect 'survey/:id'
+    redirect "surveys/#{@survey.id}"
   else
     # will need to feed a failure msg to the survey page
   end
