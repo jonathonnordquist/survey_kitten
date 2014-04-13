@@ -31,13 +31,9 @@
       <% current_user = nil %>
       <% if current_user.nil? %>
 
-        <form method="post" action=" /login">
-
-          <input type="text" name="user_name">
-          <input type="password" name="password">
-
-        </form>
-
+        <%if logged_in? %>
+          <button><a href="/logout">Logout</a></button>
+        <%end%>
       <% else %>
 
         <p>session[:user_id]<p>
@@ -53,7 +49,7 @@
       <img src="https://pbs.twimg.com/profile_images/3031415037/97781eac7b3ce9fac7c0a5c063c3db32.jpeg">
 
       <% if !current_user.nil? %>
-        <form method="post" action="/surveys/new">
+        <form method="post" action="/surveys/new" >
           <input type="submit" value="Create Survey">
         </form>
       <% end %>

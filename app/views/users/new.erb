@@ -2,7 +2,7 @@
 
 <h1>ONE OF US, ONE OF US</h1>
 
-  <form id="user-creation-form" name="user-creation-form" action="/users" method="post" enctype="multipart/form-data">
+  <form id="user-creation-form" name="user-creation-form" action="/users" method="post">
   <fieldset>
     <label for="name" id="name-label">Username:</label><br>
     <input type="text" name="user[name]" id="name" size="30" value="" class="text-input" /><br>
@@ -23,9 +23,6 @@
 
     <label for="image" id="image-label">Profile Pic URL (Optional):</label><br>
     <input type="url" name="user[image_url]" id="image" size="30" value="" class="text-input" /><br>
-
-    <label for="upload">Profile Pic (Choose a file):</label><br>
-    <input type="file" name="upload_image"><br>
 
       <br />
     <input type="submit" name="submit" class="button" id="submit-btn" value="Register" />

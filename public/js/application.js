@@ -51,7 +51,7 @@ $(document).ready(function() {
         $.post("/login", formData, function(response) {
             if(response === "error") {
               $("label#login-error").show();
-              $("input#name").focus();
+              $("input[name='email']").focus();
               return false;
             }
             else  {
