@@ -5,7 +5,7 @@
 <br>
 <% @question.each_with_index do |question, question_no| %>
 <form method="post" action="/responses">
-  <%= question.text %>
+  <%= question.text %> <img src="../<%=question.filepath%>" alt="Question Pic" height="100" width="100">
   <br>
     <% @choices[question_no].each do |choice| %>
       <input type="radio" name="answer[<%= question_no %>]" value="<%= choice.id %>"> <%= choice.option %>

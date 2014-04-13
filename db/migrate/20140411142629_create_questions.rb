@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :survey_id
       t.string :text
       t.string :image_url
+      t.string :filepath
 
       t.timestamps
     end
