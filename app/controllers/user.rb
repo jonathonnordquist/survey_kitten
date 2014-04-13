@@ -40,7 +40,7 @@ get '/users/:id' do
   end
 end
 
-post '/users/logout' do
+post '/logout' do
   session.clear
   redirect '/'
 end
