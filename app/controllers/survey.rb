@@ -8,8 +8,9 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
+  puts params
   @survey = Survey.new(creator_id: session[:user_id],
-                       title: params[:title])
+                       title: params[:title], :filepath => params[:upload_image])
   if @survey.save
     @question = Question.new(survey_id: @survey.id,
                              text: params[:text])

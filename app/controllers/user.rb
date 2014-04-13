@@ -5,7 +5,9 @@ get '/users/new' do
 end
 
 post '/users' do
-  User.create(params[:user])
+  user = User.new(params[:user])
+  @uploaded_file = user.update(:filepath => params[:upload_image])
+  user.save!
   redirect '/'
   # redirect '/users/#{userid}'  # this doesn't work yet
 end
