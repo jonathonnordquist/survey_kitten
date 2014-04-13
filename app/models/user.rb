@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates :email, format: { with: /.+@.+\..+/,
     message: "only allows letters" }
 
+  mount_uploader :filepath, Uploader
+
   has_many :created_surveys, class_name: 'Survey', foreign_key: :creator_id
   has_many :participations, foreign_key: :taker_id
   has_many :taken_surveys, through: :participations, source: :survey
