@@ -6,10 +6,10 @@
   <%= question.text %>
   <br>
     <% @choices[question_no].each do |choice| %>
-      <input type="radio" name="question[<%= question_no %>]" value="<%= choice.id %>"> <%= choice.option %>
+      <input type="radio" name="answer[<%= question_no %>]" value="<%= choice.id %>"> <%= choice.option %>
       <br>
     <% end %>
-
+    <input type="hidden" name="survey_id" value="<%= @survey_id %>">
 
   <% end %>
   <input type="submit">

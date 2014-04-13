@@ -82,12 +82,13 @@ end
 # Survey submission methods
 
 post '/responses' do
-  p "submitted======================================================================="
-  p params
-  p params[:question][0]
-  # answer = params[:choice_id]
-  # participation = params[:participation_no]
-  # Answer.create(participation_id: participation, choice_id: answer)
+  participation = Participation.create(taker_id: 1, survey_id: params[:survey_id])  # Get taker_id from user session
+
+  params[:answer].each do |key, value|
+    Answer.create(participation_id: participation.id, choice_id: params[:answer][key]) if params[:answer][key]
+  end
+
+  participation = params[:participation_no]
   erb :'/surveys/thank'
 end
 
