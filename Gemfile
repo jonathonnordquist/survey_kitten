@@ -16,7 +16,7 @@ gem 'activerecord'
 
 gem 'rake'
 gem 'bcrypt'
-
+gem 'carrierwave'
 gem 'shotgun'
 
 group :test do
