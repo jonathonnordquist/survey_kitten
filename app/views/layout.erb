@@ -28,13 +28,12 @@
 <body>
   <div class="topbar">
     <div class="login">
-      <% if session[:user_id] %>
-      <% @this_user = User.find(session[:user_id]) %>
+      <% if logged_in? %>
             <h1> Survey Kitten </h1>
             <a href='/logout'>Logout</a>
             <a href='/surveys/new'>Create</a>
             <a href='/surveys/'>Browse</a>
-            <a href='/users/:id'>Profile</a>
+            <a href="/users/<%=session[:user_id]%>">Profile</a>
       <% else %>
             <h1> Survey Kitten </h1>
             <a href='/'>Login</a>

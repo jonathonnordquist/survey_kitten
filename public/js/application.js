@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  $('.user-photo[src=""]').hide();
+
 //Errors for Create User page (might work for other forms)
   $(function() {
       $('.error').hide();
@@ -51,7 +53,7 @@ $(document).ready(function() {
         $.post("/login", formData, function(response) {
             if(response === "error") {
               $("label#login-error").show();
-              $("input#name").focus();
+              $("input[name='email']").focus();
               return false;
             }
             else  {

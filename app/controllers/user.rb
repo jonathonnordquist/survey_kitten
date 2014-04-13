@@ -6,7 +6,6 @@ end
 
 post '/users' do
   @user = User.new(params[:user])
-  @uploaded_file = @user.update(:filepath => params[:upload_image])
   if @user.save!
     @user = User.last
         session[:user_id] = @user.id
@@ -32,7 +31,6 @@ end
 
 #read
 get '/users/:id' do
-  # Get user id
   if logged_in?
     erb :'users/show'
   else
