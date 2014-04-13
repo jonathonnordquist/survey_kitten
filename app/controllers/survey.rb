@@ -29,7 +29,7 @@ end
 
 
 #read
-get '/surveys/' do
+get '/surveys' do
   if logged_in?
     @surveys = Survey.all
     erb :'/surveys/index'
