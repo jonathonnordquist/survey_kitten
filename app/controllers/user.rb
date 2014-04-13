@@ -5,9 +5,13 @@ get '/users/new' do
 end
 
 post '/users' do
-  User.create(params[:user])
-  redirect '/'
-  # redirect '/users/#{userid}'  # this doesn't work yet
+  if User.create(params[:user])
+    @user = User.last
+        session[:user_id] = @user.id
+        @user.id.to_s
+  else
+    "error"
+  end
 end
 
 

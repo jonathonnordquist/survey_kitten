@@ -45,6 +45,35 @@ $(document).ready(function() {
       url: "/users/:id"
     });
 
+    $("#login-form").on('submit', function(event) {
+      var formData = $("form#login-form").serialize();
+      event.preventDefault();
+        $.post("/login", formData, function(response) {
+            if(response === "error") {
+              $("label#login-error").show();
+              $("input#name").focus();
+              return false;
+            }
+            else  {
+              location.href = "/users/"+ response;
+            }
+        });
+    });
+
+    $("#user-creation-form").on('submit', function(event) {
+      var formData = $("form#user-creation-form").serialize();
+      event.preventDefault();
+        $.post("/users", formData, function(response) {
+            if(response === "error") {
+              $("label#user-creation-input-error").show();
+              $("input#name").focus();
+              return false;
+            }
+            else  {
+              location.href = "/users/"+ response;
+            }
+        });
+    });
 
 
 });

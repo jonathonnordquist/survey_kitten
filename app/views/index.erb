@@ -1,13 +1,17 @@
 <div class="container">
-  <form action="/login" method="post">
+
+  <form id="login-form" action="/login" method="post">
 
     <label for="email">Email:</label><br>
       <input type="text" name="email"><br>
 
     <label for="password">Password:</label><br>
-      <input type="text" name="password"><br>
+      <input type="password" name="password"><br>
 
-    <input type="submit" value="Login">
+    <input type="submit" name= "submit" value="Login">
+    <label class="error" for="submit" id="login-error">Invalid username or password</label>
   </form>
+
     <button><a href="/users/new">Create an account</a></button>
+
 </div>
