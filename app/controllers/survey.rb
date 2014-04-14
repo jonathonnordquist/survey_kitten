@@ -92,7 +92,7 @@ end
 # Survey submission methods
 
 post '/responses' do
-  participation = Participation.create(taker_id: 1, survey_id: params[:survey_id])  # Get taker_id from user session
+  participation = Participation.create(taker_id: session[:user_id], survey_id: params[:survey_id])  # Get taker_id from user session
   if params[:answer] != nil
     params[:answer].each do |key, value|                                                          # Creates new answers for multiple choice.
       Answer.create(participation_id: participation.id, choice_id: params[:answer][key])
