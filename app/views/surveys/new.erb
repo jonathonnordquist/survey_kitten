@@ -1,18 +1,18 @@
 <div class="container">
 	<h2>Create a New Survey!</h2>
-	<form action="/surveys" method="post" enctype="multipart/form-data">
+	<form id='create-survey' action="/surveys" method="post" enctype="multipart/form-data">
     <label for="upload">Choose a Pic:</label><br>
     <input type="file" name="upload_image"><br>
 		<label for="title">Title:</label><br>
-		<input type="text" name="title" size="60"><br><br>
-		<label for="text">Question:</label><br>
-		<input type="text" name="text" size="60"><br><br>
-		<label for="q_upload">Add picture to your question:</label><br>
-    <input type="file" name="question_image"><br>
-		<label for="choice[option]">Choices: </label><br>
-		<input type="text" name="choice[option1]"><br><br>
-		<input type="text" name="choice[option2]"><br><br>
+		<input type="text" name="survey[title]" size="60"><br><br>
+
+		<ul id="survey-questions">
+		</ul>
+
+		<button id="add-question">Add Question</button>
 		<input type="submit" value="Create!">
 	</form><br>
-	<a href="/surveys/">Go Back</a>
+	<a href="/surveys">Go Back</a>
 </div>
+
+

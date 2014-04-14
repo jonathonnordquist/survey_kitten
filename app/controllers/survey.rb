@@ -8,23 +8,26 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-  puts params
   @survey = Survey.new(creator_id: session[:user_id],
-                       title: params[:title], :filepath => params[:upload_image])
+                       title: survey_params[:title], 
+                       :filepath => params[:upload_image])
+  
   if @survey.save
-    @question = Question.new(survey_id: @survey.id,
-                             text: params[:text], :filepath => params[:question_image])
+    questions.each do |question|
+      @question = Question.new(survey_id: @survey.id,
+                               text: question[:text], 
+                               :filepath => params[:question_image])
+    
+      if @question.save
+        question[:options].each do |value|
+          @choices = Choice.create(question_id: @question.id,
+                                   option: value)
+        end
+      end
+    end
   end
 
-  if @question.save
-    params[:choice].each do |key, value|
-      @choices = Choice.create(question_id: @question.id,
-                            option: value)
-    end
-    redirect "surveys/#{@survey.id}"
-  else
-    # will need to feed a failure msg to the survey page
-  end
+  redirect "surveys/#{@survey.id}"
 end
 
 
