@@ -30,15 +30,15 @@
   <div class="topbar">
     <div class="login">
       <% if logged_in? %>
-            <h1> Survey Kitten </h1>
-            <a href='/logout'>Logout</a>
-            <a href='/surveys/new'>Create</a>
-            <a href='/surveys'>Browse</a>
-            <a href="/users/<%=session[:user_id]%>">Profile</a>
+        <h1> Survey Kitten </h1>
+        <a href='/logout'>Logout</a>
+        <a href='/surveys/new'>Create</a>
+        <a href='/surveys'>Browse</a>
+        <a href="/users/<%=session[:user_id]%>">Profile</a>
       <% else %>
-            <h1> Survey Kitten </h1>
-            <a href='/'>Login</a>
-            <a href='/users/new'>Register</a>
+        <h1> Survey Kitten </h1>
+        <a href='/'>Login</a>
+        <a href='/users/new'>Register</a>
       <% end %>
     </div>
   </div>

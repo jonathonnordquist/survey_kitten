@@ -41,7 +41,7 @@ get '/surveys' do
   end
 end
 
-get '/surveys/:id' do         # Uncomment prior to submission
+get '/surveys/:id' do
   # if logged_in?
     @survey = Survey.find(params[:id])
     @survey_id = params[:id]
@@ -77,7 +77,11 @@ end
 
 #delete
 
-
+get '/surveys/delete/:id' do
+  survey = Survey.find_by(id: params[:id], creator_id: session[:user_id])
+  survey.destroy
+  redirect "/users/#{session[:user_id]}"
+end
 
 #---------------------------
 # Survey submission methods
