@@ -8,17 +8,24 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
+# puts params #{"survey"=>{"title"=>"testsurvey", "questions"=>[{"text"=>"why?", "options"=>["because"]}]}}
+# puts params[:survey] #{"title"=>"testsurvey", "questions"=>[{"text"=>"qwe", "options"=>["opop"]}]}
+# puts params[:survey][:questions] #{"text"=>"qwe", "options"=>["opop"]}
+
+
+
   @survey = Survey.new(creator_id: session[:user_id],
-                       title: params[:title],
+                       title: params[:survey][:title],
                        :filepath => params[:upload_image])
 
-  if @survey.save
-    questions.each do |question|
+  if @survey.save!
+
+    params[:survey][:questions].each do |question|
       @question = Question.new(survey_id: @survey.id,
                                text: question[:text],
                                :filepath => params[:question_image])
 
-      if @question.save
+      if @question.save!
         question[:options].each do |value|
           @choices = Choice.create(question_id: @question.id,
                                    option: value)
