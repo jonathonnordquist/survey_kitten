@@ -12,6 +12,7 @@
         <li><%=number_of_answers%> people said "<%=choice.option%>" </li>
         <%percentage = average( number_of_answers , total_participations ) * 100%>
       <li><%=round_to_two(percentage)%> % picked this answer</li>
+      <div class="chart" data-percent="<%=round_to_two(percentage)%>" data-scale-color="#ffb400"><%=round_to_two(percentage)%></div>
       <%end%>
     <%end%>
   </ul>
