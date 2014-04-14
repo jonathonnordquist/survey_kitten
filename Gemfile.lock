@@ -52,7 +52,7 @@ GEM
     rspec-mocks (2.14.6)
     shotgun (0.9)
       rack (>= 1.0)
-    shoulda-matchers (2.5.0)
+    shoulda-matchers (2.6.0)
       activesupport (>= 3.0.0)
     sinatra (1.4.5)
       rack (~> 1.4)

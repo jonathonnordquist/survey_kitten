@@ -9,15 +9,15 @@ end
 
 post '/surveys' do
   @survey = Survey.new(creator_id: session[:user_id],
-                       title: survey_params[:title], 
+                       title: params[:title],
                        :filepath => params[:upload_image])
-  
+
   if @survey.save
     questions.each do |question|
       @question = Question.new(survey_id: @survey.id,
-                               text: question[:text], 
+                               text: question[:text],
                                :filepath => params[:question_image])
-    
+
       if @question.save
         question[:options].each do |value|
           @choices = Choice.create(question_id: @question.id,
@@ -58,9 +58,6 @@ get '/surveys/:id' do
 
     @survey_questions = Question.where(survey_id: @survey_id)
     erb :'/surveys/show'
-  # else
-  #   redirect '/'
-  # end
 end
 
 
