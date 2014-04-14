@@ -7,10 +7,6 @@ $(document).ready(function() {
 
   });
 
-  // $('.chart').easyPieChart({
-
-  // });
-
 //Errors for Create User page (might work for other forms)
   $(function() {
       $('.error').hide();

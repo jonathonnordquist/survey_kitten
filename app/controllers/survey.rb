@@ -10,7 +10,7 @@ end
 post '/surveys' do
 # puts params #{"survey"=>{"title"=>"testsurvey", "questions"=>[{"text"=>"why?", "options"=>["because"]}]}}
 # puts params[:survey] #{"title"=>"testsurvey", "questions"=>[{"text"=>"qwe", "options"=>["opop"]}]}
-# puts params[:survey][:questions] #{"text"=>"qwe", "options"=>["opop"]}
+puts params[:survey][:questions] #{"text"=>"qwe", "options"=>["opop"]}
 
 
 
@@ -23,7 +23,7 @@ post '/surveys' do
     params[:survey][:questions].each do |question|
       @question = Question.new(survey_id: @survey.id,
                                text: question[:text],
-                               :filepath => params[:question_image])
+                               filepath: question[:filepath])
 
       if @question.save!
         question[:options].each do |value|

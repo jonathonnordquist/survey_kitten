@@ -31,7 +31,7 @@
       </tr>
       <% @this_user.created_surveys.each do |created_survey| %>
       <tr id="survey_no<%= created_survey.id %>">
-        <td><img src="<%=created_survey.image_url %>" alt="Survey Image" height="25" width="25"></td>
+        <td><img src="<%=created_survey.filepath %>" alt="Survey Image" height="25" width="25"></td>
         <td><a href="/surveys/<%=created_survey.id %>"><%=created_survey.title %></a></td>
         <td><a href='/surveys/<%=created_survey.id %>/stats'>View stats</a></td>
         <td><a href="/surveys/delete/<%= created_survey.id %>" id="deletion_no<%= created_survey.id %>">Delete this survey</a></td>
@@ -48,7 +48,7 @@
       </tr>
       <% @this_user.taken_surveys.each do |taken_survey| %>
       <tr>
-        <td><img src="<%=taken_survey.image_url %>" alt="Survey Image" height="25" width="25"></td>
+        <td><img src="<%=taken_survey.filepath %>" alt="Survey Image" height="25" width="25"></td>
         <td><a href="/surveys/<%=taken_survey.id %>"><%=taken_survey.title %></a></td>
         <td><a href='/surveys/<%=taken_survey.id %>/stats'>View stats</a></td>
       </tr>
