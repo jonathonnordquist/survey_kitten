@@ -85,3 +85,12 @@ th {
 .white-font {
   color: white;
 }
+
+.stats li {
+  width: 200px;
+  display: inline-block;
+  margin-right: 80%;
+}
+.chart {
+  margin: 20px auto;
+}
