@@ -1,17 +1,17 @@
-<div class="container">
-
-  <form id="login-form" action="/login" method="post">
-
-    <label for="email">Email:</label><br>
+<div class="container-index">
+  <div class="banner">
+    <form id="login-form" action="/login" method="post">
+      <label for="email">Email:</label><br>
       <input type="text" name="email"><br>
-
-    <label for="password">Password:</label><br>
+      <label for="password">Password:</label><br>
       <input type="password" name="password"><br>
+      <input class="login-button" type="submit" name= "submit" value="Login">
+      <label class="error" for="submit" id="login-error">Invalid username or password</label>
+    </form>
+  </div>
 
-    <input type="submit" name= "submit" value="Login">
-    <label class="error" for="submit" id="login-error">Invalid username or password</label>
-  </form>
+  <div>
+  </div>
 
-    <button><a href="/users/new">Create an account</a></button>
 
 </div>
