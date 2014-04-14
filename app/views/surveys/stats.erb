@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Statistics for <%=@survey.title%></h2>
 
-  <ul>
+  <ul class="stats">
     <%total_participations = @survey.answers.count%>
     <li>Number of responses: <%=total_participations%></li>
         <%@survey.questions.each do |question|%>
@@ -11,7 +11,7 @@
           <%number_of_answers = @survey.answers.where(choice_id: choice.id).count%>
         <li><%=number_of_answers%> people said "<%=choice.option%>" </li>
         <%percentage = average( number_of_answers , total_participations ) * 100%>
-      <li><%=round_to_two(percentage)%> % picked this answer</li>
+      <!-- <li><%=round_to_two(percentage)%> % picked this answer</li> -->
       <div class="chart" data-percent="<%=round_to_two(percentage)%>" data-scale-color="#ffb400"><%=round_to_two(percentage)%></div>
       <%end%>
     <%end%>

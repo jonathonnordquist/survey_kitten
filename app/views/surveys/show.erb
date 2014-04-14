@@ -5,6 +5,7 @@
 <br>
 <form method="post" action="/responses">
   <% @question.each_with_index do |question, question_no| %>
+    <img src="<%=question.filepath%>" alt="question image"><br>
     <%= question.text %>
     <br>
     <% if @choices[question_no].count > 0 %>

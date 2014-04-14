@@ -1,15 +1,12 @@
 $(document).ready(function() {
 
   $('.user-photo[src=""]').hide();
+  $('.survey-pic[src=""]').hide();
 
   // Pie Chart generator for stats page.
   $('.chart').easyPieChart({
 
   });
-
-  // $('.chart').easyPieChart({
-
-  // });
 
 //Errors for Create User page (might work for other forms)
   $(function() {
