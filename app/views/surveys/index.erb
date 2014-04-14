@@ -2,9 +2,10 @@
 	<h2>Browse Surveys</h2>
 	<ul>
 		<% @surveys.each do |survey| %>
-		<li class="survey-list"> 
-			<%= survey.title %> 
-			<a class="take-survey" href="/surveys/<%= survey.id %>">Take Survey!</a> 
+		<li class="survey-list">
+      <img class="survey-pic" src="<%=survey.filepath%>" alt="survey picture" height="50" width="50">
+			<%= survey.title %>
+			<a class="take-survey" href="/surveys/<%= survey.id %>">Take Survey!</a>
 		</li>
 		<% end %>
 	</ul>

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $('.user-photo[src=""]').hide();
+  $('.survey-pic[src=""]').hide();
 
   // Pie Chart generator for stats page.
   $('.chart').easyPieChart({
